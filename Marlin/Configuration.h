@@ -78,7 +78,7 @@ non-belt-synced drives. In this case, a additional configuration has to be done
 //===========================================================================
 //============================= Hotend-Preset================================
 //===========================================================================
-//#define E3D_HEMERA //Only for Sapphire PLUS yet.
+//#define E3D_HEMERA //Only for Sapphire PLUS yet. Feel free to share settings for the Pro/Bluer
 
 //Modifies Thermistor Types, esteps, homing sequence (Y before X)
 // and min X-position (+8mm)
@@ -116,11 +116,11 @@ non-belt-synced drives. In this case, a additional configuration has to be done
 
 // Motion Control Settings
 // New Motion Control              - Classic Jerk [OFF] | S-Curve Acceleration [ON]  | Junction Deviation Factor [ON]
-//#define MOTION_NEW
-//#define MOTION_NEW_JD           // If there is a jerky movement during small circular movements, activate the function
+#define MOTION_NEW
+#define MOTION_NEW_JD           // If there is a jerky movement during small circular movements, activate the function
 
 // Classic Motion Control          - Classic Jerk [ON]  | S-Curve Acceleration [OFF] | Junction Deviation Factor [OFF]
-#define MOTION_CLASSIC
+//#define MOTION_CLASSIC
 
 
 // Linear Pressure Control
@@ -1266,7 +1266,7 @@ non-belt-synced drives. In this case, a additional configuration has to be done
   #define DEFAULT_TRAVEL_ACCELERATION   1500    // X, Y, Z acceleration for travel (non printing) moves
 #elif ANY (SAPPHIRE_PRO, SAPPHIRE_PLUS)
   //Sapphire Pro & Plus
-  #define DEFAULT_ACCELERATION          1000    // X, Y, Z and E acceleration for printing moves
+  #define DEFAULT_ACCELERATION          1250    // X, Y, Z and E acceleration for printing moves
   #define DEFAULT_RETRACT_ACCELERATION  2000    // E acceleration for retracts
   #define DEFAULT_TRAVEL_ACCELERATION   1500    // X, Y, Z acceleration for travel (non printing) moves
 #elif ENABLED (BLUER)
