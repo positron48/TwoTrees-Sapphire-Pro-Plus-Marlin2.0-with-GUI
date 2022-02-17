@@ -1,4 +1,6 @@
 # About this Fork
+Waring: This Repo will be depreciated soon, since I'm moving to a direct Marlin Fork with different branches instead of complicated precompiler directions for the configuration of multiple devices. This should make the maintainance of this Project a lot more easier and faster for me. [The following Repo will be this one.](https://github.com/RolfZuckowskiUltras/TwoTrees_Sapphire_RawMarlin)
+
 This fork is a Marlin version, based on the original branch of MKS (board manufacturer), and was created to bring Marlin 2.0 with the easy configurability of Marlin implementation from l3tspeak to TwoTrees printers like the Sapphire Plus an Pro. This brings back the original GUI that originally came with your printer but with full configurability.
 
 ## Preconfigured printers:
