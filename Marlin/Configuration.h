@@ -60,7 +60,7 @@
 
 // Core XY
 //#define SAPPHIRE_PRO
-//#define SAPPHIRE_PLUS
+#define SAPPHIRE_PLUS
 //#define SAPPHIRE_PLUS_DUAL_Z //==> Read text since additional config is mandatory
 /****************************************************************************
 Attention: On newer Sapphire Plus models (Probably manufactured after April 2020)
@@ -938,11 +938,16 @@ non-belt-synced drives. In this case, a additional configuration has to be done
     //Sapphire Pro & Plus
     #define USE_XMIN_PLUG
     //#define USE_YMIN_PLUG
-    #define USE_ZMIN_PLUG
+    #if ENABLED(SAPPHIRE_PLUS)
+      //#define USE_ZMIN_PLUG
+      #define USE_ZMAX_PLUG
+    #else
+      #define USE_ZMIN_PLUG
+      //#define USE_ZMAX_PLUG
+    #endif
     //#define USE_XMAX_PLUG
     #define USE_YMAX_PLUG
-    //#define USE_ZMAX_PLUG
-#elif ENABLED(SAPPHIRE_PLUS_DUAL_Z)
+  #elif ENABLED(SAPPHIRE_PLUS_DUAL_Z)
     //Sapphire Pro & Plus
     #define USE_XMIN_PLUG
     //#define USE_YMIN_PLUG
@@ -1847,7 +1852,7 @@ non-belt-synced drives. In this case, a additional configuration has to be done
     // :[-1,1]
     #define X_HOME_DIR -1
     #define Y_HOME_DIR 1
-    #define Z_HOME_DIR -1
+    #define Z_HOME_DIR 1
 
     // @section machine
 
@@ -2335,7 +2340,7 @@ non-belt-synced drives. In this case, a additional configuration has to be done
 #endif
 
 // Homing speeds (mm/min) (X,Y,Z)
-#define HOMING_FEEDRATE_MM_M { (50*60),(50*60),(40*60)}
+#define HOMING_FEEDRATE_MM_M { (50*60),(50*60),(8*60)}
 
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
