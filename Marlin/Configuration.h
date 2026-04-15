@@ -3241,6 +3241,8 @@ non-belt-synced drives. In this case, a additional configuration has to be done
 
 #if ENABLED(TFT_LVGL_UI)
   #define MKS_WIFI_MODULE  // MKS WiFi module
+  // Disable SPI flash font loading to avoid LVGL black-screen issues on some MKS TFT setups.
+  #define HAS_SPI_FLASH_FONT 0
   /**
    * FRENCH KEYBOARD
    * 
