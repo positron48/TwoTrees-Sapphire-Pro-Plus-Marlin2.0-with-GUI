@@ -78,7 +78,7 @@ non-belt-synced drives. In this case, a additional configuration has to be done
 //===========================================================================
 //============================= Hotend-Preset================================
 //===========================================================================
-//#define E3D_HEMERA //Only for Sapphire PLUS yet. Feel free to share settings for the Pro/Bluer
+//#define E3D_HEMERA //Only for Sapphire PLUS yet.
 
 //Modifies Thermistor Types, esteps, homing sequence (Y before X)
 // and min X-position (+8mm)
@@ -116,11 +116,11 @@ non-belt-synced drives. In this case, a additional configuration has to be done
 
 // Motion Control Settings
 // New Motion Control              - Classic Jerk [OFF] | S-Curve Acceleration [ON]  | Junction Deviation Factor [ON]
-#define MOTION_NEW
-#define MOTION_NEW_JD           // If there is a jerky movement during small circular movements, activate the function
+//#define MOTION_NEW
+//#define MOTION_NEW_JD           // If there is a jerky movement during small circular movements, activate the function
 
 // Classic Motion Control          - Classic Jerk [ON]  | S-Curve Acceleration [OFF] | Junction Deviation Factor [OFF]
-//#define MOTION_CLASSIC
+#define MOTION_CLASSIC
 
 
 // Linear Pressure Control
@@ -153,15 +153,15 @@ non-belt-synced drives. In this case, a additional configuration has to be done
   #define DRIVER_X TMC2209_STANDALONE
   #define DRIVER_Y TMC2209_STANDALONE
   #define DRIVER_Z TMC2209_STANDALONE
-  #define DRIVER_E0 TMC2208_STANDALONE
+  #define DRIVER_E0 TMC2209_STANDALONE
   //#define DRIVER_E1 TMC2209_STANDALONE
-  #define DRIVER_Z2 TMC2208_STANDALONE
+  //#define DRIVER_Z2 TMC2209_STANDALONE
 
   //#define INVERT_X
   //#define INVERT_Y
   #define INVERT_Z
-  //#define INVERT_E0
-  #define INVERT_Z2
+  #define INVERT_E0
+  //#define INVERT_Z2
   //#define INVERT_E1
 #endif
 
@@ -677,7 +677,6 @@ non-belt-synced drives. In this case, a additional configuration has to be done
 #define TEMP_SENSOR_5 0
 #define TEMP_SENSOR_6 0
 #define TEMP_SENSOR_7 0
-#define TEMP_SENSOR_BED 1
 #define TEMP_SENSOR_PROBE 0
 #define TEMP_SENSOR_CHAMBER 0
 
@@ -696,13 +695,13 @@ non-belt-synced drives. In this case, a additional configuration has to be done
 //#define TEMP_SENSOR_1_AS_REDUNDANT
 #define MAX_REDUNDANT_TEMP_SENSOR_DIFF 10
 
-#define TEMP_RESIDENCY_TIME      4  // (seconds) Time to wait for hotend to "settle" in M109
-#define TEMP_WINDOW              4  // (°C) Temperature proximity for the "temperature reached" timer
-#define TEMP_HYSTERESIS          4  // (°C) Temperature proximity considered "close enough" to the target
+#define TEMP_RESIDENCY_TIME     10  // (seconds) Time to wait for hotend to "settle" in M109
+#define TEMP_WINDOW              3  // (°C) Temperature proximity for the "temperature reached" timer
+#define TEMP_HYSTERESIS          3  // (°C) Temperature proximity considered "close enough" to the target
 
-#define TEMP_BED_RESIDENCY_TIME  4  // (seconds) Time to wait for bed to "settle" in M190
-#define TEMP_BED_WINDOW          4  // (°C) Temperature proximity for the "temperature reached" timer
-#define TEMP_BED_HYSTERESIS      4  // (°C) Temperature proximity considered "close enough" to the target
+#define TEMP_BED_RESIDENCY_TIME  5  // (seconds) Time to wait for bed to "settle" in M190
+#define TEMP_BED_WINDOW          3  // (°C) Temperature proximity for the "temperature reached" timer
+#define TEMP_BED_HYSTERESIS      3  // (°C) Temperature proximity considered "close enough" to the target
 
 // Below this temperature the heater will be switched off
 // because it probably indicates a broken thermistor wire.
@@ -1266,7 +1265,7 @@ non-belt-synced drives. In this case, a additional configuration has to be done
   #define DEFAULT_TRAVEL_ACCELERATION   1500    // X, Y, Z acceleration for travel (non printing) moves
 #elif ANY (SAPPHIRE_PRO, SAPPHIRE_PLUS)
   //Sapphire Pro & Plus
-  #define DEFAULT_ACCELERATION          1250    // X, Y, Z and E acceleration for printing moves
+  #define DEFAULT_ACCELERATION          1000    // X, Y, Z and E acceleration for printing moves
   #define DEFAULT_RETRACT_ACCELERATION  2000    // E acceleration for retracts
   #define DEFAULT_TRAVEL_ACCELERATION   1500    // X, Y, Z acceleration for travel (non printing) moves
 #elif ENABLED (BLUER)
@@ -1363,7 +1362,7 @@ non-belt-synced drives. In this case, a additional configuration has to be done
  * The probe replaces the Z-MIN endstop and is used for Z homing.
  * (Automatically enables USE_PROBE_FOR_Z_HOMING.)
  */
-//#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
 
 // Force the use of the probe for Z-axis homing
 //#define USE_PROBE_FOR_Z_HOMING
@@ -1383,7 +1382,7 @@ non-belt-synced drives. In this case, a additional configuration has to be done
  *      - normally-closed switches to GND and D32.
  *      - normally-open switches to 5V and D32.
  */
-//#define Z_MIN_PROBE_PIN PC4 // Pin 32 is the RAMPS default
+//#define Z_MIN_PROBE_PIN 32 // Pin 32 is the RAMPS default
 
 /**
  * Probe Type
@@ -3241,8 +3240,6 @@ non-belt-synced drives. In this case, a additional configuration has to be done
 
 #if ENABLED(TFT_LVGL_UI)
   #define MKS_WIFI_MODULE  // MKS WiFi module
-  // Disable SPI flash font loading to avoid LVGL black-screen issues on some MKS TFT setups.
-  #define HAS_SPI_FLASH_FONT 0
   /**
    * FRENCH KEYBOARD
    * 
@@ -3428,7 +3425,7 @@ non-belt-synced drives. In this case, a additional configuration has to be done
  * Set this manually if there are extra servos needing manual control.
  * Set to 0 to turn off servo support.
  */
-#define NUM_SERVOS 1 // Servo index starts with 0 for M280 command
+//#define NUM_SERVOS 3 // Servo index starts with 0 for M280 command
 
 // (ms) Delay  before the next move will start, to give the servo time to reach its target angle.
 // 300ms is a good value but you can try less delay.
